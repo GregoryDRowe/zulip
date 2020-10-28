@@ -294,6 +294,7 @@ class OpenAPIArgumentsTest(ZulipTestCase):
         "/fetch_google_client_id",
         # API for video calls we're planning to remove/replace.
         "/calls/zoom/create",
+        "/calls/webex/create",
     }
 
     # Endpoints where the documentation is currently failing our

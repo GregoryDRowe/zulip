@@ -77,6 +77,7 @@ from zerver.lib.actions import (
     do_set_realm_property,
     do_set_realm_signup_notifications_stream,
     do_set_user_display_setting,
+    do_set_webex_token,
     do_set_zoom_token,
     do_unmute_topic,
     do_update_embedded_data,
@@ -102,6 +103,7 @@ from zerver.lib.event_schema import (
     check_default_stream_groups,
     check_default_streams,
     check_delete_message,
+    check_has_webex_token,
     check_has_zoom_token,
     check_hotspots,
     check_invites_changed,
@@ -1777,6 +1779,15 @@ class NormalActionsTest(BaseAction):
 
         events = self.verify_action(lambda: do_set_zoom_token(self.user_profile, None))
         check_has_zoom_token("events[0]", events[0], value=False)
+
+    def test_has_webex_token(self) -> None:
+        events = self.verify_action(
+            lambda: do_set_webex_token(self.user_profile, {"access_token": "token"}),
+        )
+        check_has_webex_token("events[0]", events[0], value=True)
+
+        events = self.verify_action(lambda: do_set_webex_token(self.user_profile, None))
+        check_has_webex_token("events[0]", events[0], value=False)
 
 
 class RealmPropertyActionTest(BaseAction):

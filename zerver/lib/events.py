@@ -443,6 +443,7 @@ def fetch_initial_state_data(
 
     if want("video_calls"):
         state["has_zoom_token"] = settings_user.zoom_token is not None
+        state["has_webex_token"] = settings_user.webex_token is not None
 
     return state
 
@@ -993,6 +994,8 @@ def apply_event(
         state["user_status"] = user_status
     elif event["type"] == "has_zoom_token":
         state["has_zoom_token"] = event["value"]
+    elif event["type"] == "has_webex_token":
+        state["has_webex_token"] = event["value"]
     else:
         raise AssertionError("Unexpected event type {}".format(event["type"]))
 

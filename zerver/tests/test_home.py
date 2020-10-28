@@ -78,6 +78,7 @@ class HomeTest(ZulipTestCase):
         "full_name",
         "furthest_read_time",
         "has_mobile_devices",
+        "has_webex_token",
         "has_zoom_token",
         "high_contrast_mode",
         "hotspots",

@@ -68,6 +68,23 @@ If you would like to unlink Zoom from your Zulip account:
 If you are self-hosting, you will need to [create a Zoom
 application][zoom-configuration] to use this integration.
 
+{tab|webex}
+
+Zulip supports Webex as the video chat provider using an OAuth
+integration.  You can set it up as follows:
+
+{settings_tab|organization-settings}
+
+1. Under **Other settings** set **Video chat provider** to **Webex**.
+
+1. Click **Save changes**.
+
+Any user who creates a video call link using the instructions above
+will be prompted to link a Webex account with their Zulip account.
+
+If you are self-hosting, you will need to [create a Webex
+application][webex-configuration] to use this integration.
+
 {tab|disable}
 
 You can also disable the video call button for your organization by
@@ -77,3 +94,4 @@ setting the provider to "None".
 
 [big-blue-button-configuration]: https://zulip.readthedocs.io/en/latest/production/video-calls.html#big-blue-button
 [zoom-configuration]: https://zulip.readthedocs.io/en/latest/production/video-calls.html#zoom
+[webex-configuration]: https://zulip.readthedocs.io/en/latest/production/video-calls.html#webex
